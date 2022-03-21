@@ -1,0 +1,15 @@
+#!/bin/bash
+
+while test $# -gt 0; do
+  case "$1" in
+    --production*)
+      export PROD_DEPENDENCIES_ONLY=true
+      shift
+      ;;
+  esac
+done
+
+deno cache --reload --lock=lock.json deps.ts;
+
+
+

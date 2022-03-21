@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo 'remove lock.json (ensures that updates are applied)'
+rm lock.json
+
+echo 'create lock.json based on deps.ts'
+deno cache --lock=lock.json --lock-write deps.ts
+
